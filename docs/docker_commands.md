@@ -18,7 +18,7 @@ docker volume create storage
 docker volume inspect storage
 
 ## Create Container, mount with volume and Start it
-docker run -p 8080:8080 --mount source=storage,target=/var/lib/data restapi-challenge-network:1
+docker run -d --name video-server-container -p 8080:8080 --mount source=storage,target=/var/lib/data restapi-challenge-network:1
 ##dockerWithout Volume
 ##run -d --name restapi-challenge-network -p 8080:8080 restapi-challenge-network:1
 
