@@ -47,6 +47,10 @@ public class FilesService {
 			storageFolderLocation = VOLUME_PATH;
 		} else {
 			storageFolderLocation = FALLBACK_STORAGE_PATH;
+			File directory = new File(storageFolderLocation);
+			if (!directory.exists()){
+				directory.mkdir();
+			}
 		}
 		return storageFolderLocation;
 	}
@@ -69,6 +73,8 @@ public class FilesService {
 			}
 		} catch (IOException ioe) {
 			log.error("Exception occurred during upload "+ioe);
+			return ResponseEntity.internalServerError()
+					.body("File upload failed");
 		}
 
 		log.info("File Uploaded successfully>>>");
@@ -95,6 +101,8 @@ public class FilesService {
 			}
 		} catch (IOException ioe) {
 			log.error("Exception occurred during download "+ioe);
+			return ResponseEntity.internalServerError()
+					.body("File download failed");
 		}
 		log.info("File downloaded successfully - ");
 		return ResponseEntity.ok()

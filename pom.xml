@@ -11,7 +11,7 @@
 	<groupId>com.sajid.file</groupId>
 	<artifactId>video-server</artifactId>
 	<version>0.0.1</version>
-	<name>vide-server</name>
+	<name>video-server</name>
 	<description>File Server</description>
 	<properties>
 		<java.version>1.8</java.version>
